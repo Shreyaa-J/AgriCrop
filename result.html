@@ -1,0 +1,170 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: green;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: white;
+            background-color: blue;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Results</h1>
+        <p>Here are the predictions from each model:</p>
+        <ul>
+            {% for model, prediction in predictions.items() %}
+            <li><strong>{{ model }}:</strong> {{ prediction }}</li>
+            {% endfor %}
+        </ul>
+        <a href="/">Go Back to Home</a>
+    </div>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-image: url('https://img.freepik.com/premium-photo/panoramic-farm-sunset-with-tractors-data_73899-37224.jpg?w=1060');
+            background-size: cover;
+            background-position: center;
+            backdrop-filter: brightness(0.8);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            color: green;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .top-priority {
+            color: blue;
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: white;
+            background-color: blue;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Results</h1>
+        <p>Here are the predictions from each model:</p>
+        
+        <!-- Original Output Section -->
+        <ul>
+            {% for model, prediction in predictions.items() %}
+            <li><strong>{{ model }}:</strong> {{ prediction }}</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Added Table Section -->
+        <table>
+            <tr>
+                <th>Model</th>
+                <th>Accuracy</th>
+                <th>Prediction</th>
+            </tr>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.model }}</td>
+                <td>{{ result.accuracy | round(2) }}</td>
+                <td>{{ result.prediction }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <!-- Top Priority Prediction Statement -->
+        <p class="top-priority">
+            The top priority prediction is from <strong>{{ results[0].model }}</strong> 
+            with an accuracy of <strong>{{ results[0].accuracy | round(2) }}</strong>.
+        </p>
+
+        <a href="/">Go Back to Home</a>
+    </div>
+</body>
+</html>
+
